@@ -36,7 +36,6 @@ public class Tester {
 			test(a, b, expected);
 			test(b, a, expected);
 		}
-		
 	}
 
 }

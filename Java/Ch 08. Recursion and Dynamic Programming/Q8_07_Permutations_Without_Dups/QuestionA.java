@@ -4,32 +4,24 @@ import java.util.*;
 
 public class QuestionA {
 
-	public static ArrayList<String> getPerms(String str) {
-		if (str == null) {
-			return null;
-		}
-		ArrayList<String> permutations = new ArrayList<String>();
-		if (str.length() == 0) { // base case
-			permutations.add("");
-			return permutations;
-		}
-	            
-		char first = str.charAt(0); // get the first character
-		String remainder = str.substring(1); // remove the first character
-		ArrayList<String> words = getPerms(remainder);
-		for (String word : words) {
-			for (int j = 0; j <= word.length(); j++) {
-				String s = insertCharAt(word, first, j);
-				permutations.add(s);
+	public static ArrayList<String> getPerms(String remainder){
+		ArrayList<String> list = new ArrayList<String>();
+		if(remainder.isEmpty()) {
+			list.add("");
+			return list;
+		}else {
+			for(int i=0 ; i<remainder.length(); i++) {
+				String left = remainder.substring(0, i);
+				String right = remainder.substring(i+1);
+				String ch = remainder.substring(i, i+1);
+				
+				ArrayList<String> partialSol = getPerms(left+right);
+				for (String str : partialSol) {
+					list.add(ch+str);
+				}
 			}
+			return list;
 		}
-		return permutations;
-	}
-	
-	public static String insertCharAt(String word, char c, int i) {
-		String start = word.substring(0, i);
-		String end = word.substring(i);
-		return start + c + end;
 	}
 	
 	public static void main(String[] args) {

@@ -11,7 +11,9 @@ public class MyClass extends Thread  {
 	
 	public void run() {
 		try {
-			myObj.wait(1000);
+			System.out.println("thread run() "+name);
+			myObj.wait(5000);
+			System.out.println("thread run() "+name);
 			myObj.foo(name);
 			myObj.notify();			
 		} catch (InterruptedException e) {

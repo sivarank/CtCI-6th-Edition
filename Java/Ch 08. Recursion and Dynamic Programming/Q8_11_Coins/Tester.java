@@ -7,11 +7,10 @@ public class Tester {
 			int[] denoms = {25, 10, 5, 1};
 			int waysA = Question.makeChange(i, denoms);
 			int waysB = QuestionB.makeChange(i, denoms);
-			if (waysA != waysB) {
+			int waysC = MyAnsQuestion.makeChange(i, denoms);
+			if (waysA != waysB || waysC != waysA) {
 				System.out.println("Error: " + i + " : " + waysA + ", " + waysB);
 			}
 		}
-
 	}
-
 }

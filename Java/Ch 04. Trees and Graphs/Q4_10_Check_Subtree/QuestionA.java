@@ -6,23 +6,23 @@ import CtCILibrary.TreeNode;
 public class QuestionA {
 	
 	public static boolean containsTree(TreeNode t1, TreeNode t2) {
-		StringBuilder string1 = new StringBuilder();
-		StringBuilder string2 = new StringBuilder();
-		
-		getOrderString(t1, string1);
-		getOrderString(t2, string2);
-		
-		return string1.indexOf(string2.toString()) != -1;
+		StringBuilder strb1 = new StringBuilder();
+		StringBuilder strb2 = new StringBuilder();
+
+		getOrderString(t1, strb1);
+		getOrderString(t2, strb2);
+
+		return strb1.indexOf(strb2.toString()) != -1;
 	}
 	
 	public static void getOrderString(TreeNode node, StringBuilder sb) {
-		if (node == null) {
-			sb.append("X");             // Add null indicator
+		if(node == null){
+			sb.append('X');
 			return;
 		}
-		sb.append(node.data);           // Add root 
-		getOrderString(node.left, sb);  // Add left
-		getOrderString(node.right, sb); // Add right
+		sb.append(((Integer)node.data).toString());
+		getOrderString(node.left, sb);
+		getOrderString(node.right, sb);
 	}
 
 	public static void main(String[] args) {

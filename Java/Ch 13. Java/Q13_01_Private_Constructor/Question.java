@@ -5,18 +5,29 @@ public class Question {
 		System.out.println("Q");
 	}
 	
-    static class A {
-        private A() {
+     class A {
+        private A() { // NOTE: Private constructor
+    		System.out.println("A");
         }
     }
 
-    static class B extends A {
+     class B extends A {
     	public B() {
+    		System.out.println("B");
     	}
     }
+     
+     class C {
+         C() {
+     		System.out.println("C");
+     		A a = new A();
+         }
+     }
     
 	public static void main(String[] args) {
-		new B();
+		Question q = new Question();
+		B b = q.new B();// Learning "classObject.new" is new 
+		A a = q.new A();// outer class can create 
 	}
 
 }

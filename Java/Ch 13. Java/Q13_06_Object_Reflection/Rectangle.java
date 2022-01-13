@@ -8,7 +8,11 @@ public class Rectangle {
 		height = h;
 	}
 	
-	public double area() {
+	protected double area() {
 		return width * height;
+	}
+	
+	protected double area(double d) {
+		return width * height*d;
 	}
 }
